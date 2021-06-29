@@ -4,8 +4,18 @@ import { User } from './entities/user.entity';
 
 @Injectable()
 export class UsersService {
-  private users: User[] = [{ id: 0, name: 'Anubhav' }];
-  findAll(): User[] {
+  private users: User[] = [
+    { id: 0, name: 'Anubhav' },
+    { id: 1, name: 'Aashish' },
+    { id: 2, name: 'Hiren' },
+    { id: 3, name: 'Vivek' },
+    { id: 4, name: 'Vinit' },
+    { id: 5, name: 'Arnav' },
+  ];
+  findAll(name?: string): User[] {
+    if (name) {
+      return this.users.filter((user) => user.name === name);
+    }
     return this.users;
   }
   findById(userId: number): User {

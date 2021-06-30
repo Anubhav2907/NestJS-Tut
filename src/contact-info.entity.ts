@@ -13,8 +13,8 @@ export class ContactInfo {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
-  name: string;
+  @Column({ nullable: true })
+  phone: string;
 
   @Column()
   email: string;

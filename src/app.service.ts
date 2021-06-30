@@ -73,6 +73,20 @@ export class AppService {
   //   const user = await this.getOneById(id);
   //   return this.userRepository.remove(user);
   // }
+  getEmployeeById(id: number) {
+    return this.employeeRepository.findOne(id, {
+      relations: [
+        'manager',
+        'directReports',
+        'tasks',
+        'contactInfo',
+        'meetings',
+      ],
+    });
+  }
+  deleteEmployee(id: number) {
+    return this.employeeRepository.delete(id);
+  }
   getHello(): string {
     return 'Hello World!';
   }

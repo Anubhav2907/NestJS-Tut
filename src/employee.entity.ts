@@ -34,7 +34,7 @@ export class Employee {
   directReports: Employee;
 
   @OneToOne(() => ContactInfo, (contactInfo) => contactInfo.employee)
-  contactInfo = ContactInfo;
+  contactInfo: ContactInfo;
 
   @OneToMany(() => Task, (task) => task.employee)
   tasks: Task[];
